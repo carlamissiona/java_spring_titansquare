@@ -1,0 +1,592 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TITAN SQUARE</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap"
+            rel="stylesheet"> <!-- https://fonts.google.com/specimen/Kumbh+Sans -->
+        <link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/-->
+        <link rel="stylesheet" href="css/magnific-popup.css"> <!-- https://dimsemenov.com/plugins/magnific-popup/ -->
+        <link rel="stylesheet" href="css/tooplate-vertex.css">
+        <!--
+
+Tooplate 2124 Vertex
+
+https://www.tooplate.com/view/2124-vertex
+
+-->
+    </head>
+    <body>
+        <!-- Page Loader -->
+        <div id="loader-wrapper">
+            <div id="loader"></div>
+
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+        </div>
+
+        <!-- Site logo -->
+        <h1 class="tm-brand">
+            <i class="fas fa-mountain fa-2x tm-brand-icon"></i>
+            <span class="tm-brand-text">SQUARES</span>
+        </h1>
+
+        <!-- Nav -->
+        <nav class="tm-nav">
+            <button class="navbar-toggler" type="button" aria-label="Toggle
+                navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul id="tm-main-nav">
+                <li class="nav-item">
+                    <a href="#intro" class="nav-link current">
+                        Titan Square
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link">
+                        Races
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#gallery" class="nav-link">
+                        Titan
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/nftarena}" class="nav-link">
+                        NFT Arena
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">
+                        Register
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Content -->
+        <main>
+
+            <div id="intro" class="tm-section">
+             
+                <!-- Intro left -->
+                <div class="tm-section-col tm-content">
+
+                    <div th:switch="${#lists.size(titans)}" class="container
+                        my-2">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <div th:case="'0'">
+                                    <h2>You haven't added any Titans yet!</h2>
+                                    <p class="text-success">Add a titan by the
+                                        form below!</p>
+                                </div>
+                                <div th:case="*">
+                                    <h2 class="my-5">Your Titans</h2>
+                                    <div th:each="titan : ${titans}">
+                                        <div class="tm-media" th:each="titan :
+                                            ${titans}">
+                                            <img src="img/races/titan_race2.jpg"
+                                                alt="Intro image">
+                                            <div class="tm-media-body">
+                                                <h2 th:text="${titan.name}"><a
+                                                        href="#"
+                                                        class="tm-text-primary"></a></h2>
+                                                <p class="tm-mb-20
+                                                    tm-text-small"> Race <span
+                                                        class="tm-text-secondary
+                                                        tm-media-span
+                                                        tm-text-small"
+                                                        th:text="${titan.race}">
+                                                    </span>
+                                                </p>
+                                                <p class="tm-mb-20
+                                                    tm-text-small"> Name <span
+                                                        class="tm-text-secondary
+                                                        tm-media-span
+                                                        tm-text-small"
+                                                        th:text="${titan.name}">
+                                                    </span>
+                                                </p>
+                                                <p class="tm-mb-20
+                                                    tm-text-small"> Age <span
+                                                        class="tm-text-secondary
+                                                        tm-media-span
+                                                        tm-text-small"
+                                                        th:text="${titan.age}">
+                                                    </span>
+                                                </p>
+                                                <p class="tm-mb-20
+                                                    tm-text-small"> Desc <span
+                                                        class="tm-text-secondary
+                                                        tm-media-span
+                                                        tm-text-small"
+                                                        th:text="${titan.description}">
+                                                    </span>
+                                                </p>
+
+
+                                                <p class="tm-mb-20
+                                                    tm-text-small">
+                                                    This is an additional
+                                                    description for this site.
+                                                    You have to send your titan
+                                                    to NFT school or NFT Arena
+                                                    just click the link here.
+                                                    Level up your titans. This
+                                                    site is connected to
+                                                    Kaleido blockchain test
+                                                    network.
+                                                    <span
+                                                        class="tm-text-secondary
+                                                        tm-media-span
+                                                        tm-text-small">
+                                                        <strong> <button
+                                                                onclick="submitFunc(); "
+                                                                href="http://kaleido"
+                                                                th:value="${titan.id}">Send
+                                                                To School</button></strong>
+                                                    </span>
+                                                    <span
+                                                        class="tm-text-secondary
+                                                        tm-media-span
+                                                        tm-text-small">
+                                                        Added on Monday . 21
+                                                        June 2021
+                                                    </span></p>
+                                                <hr class="tm-hr tm-mr">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <!-- Intro right -->
+                <div class="tm-section-col tm-parallax" data-parallax="scroll"
+                    data-image-src="img/parallax01.png"></div>
+            </div> <!-- #intro -->
+
+            <div id="services" class="tm-section">
+                <!-- Services left -->
+                <div class="tm-section-col tm-content">
+                    <h2 class="tm-text-primary">Upgrade Your Titan</h2>
+                    <p>Lorem Ipsum dolor et set Lorem Ipsum dolor et set Credit
+                        goes to <strong>Pexels website</strong> for background
+                        images and Unsplash website for gallery images used in
+                        this Vertex HTML template. Vestibulum quis ultrices
+                        ipsum, tempor cursus odio. Donec et nisl sit amet mauris
+                        consequat sodales.
+                    </p>
+                    <p>
+                        Morbi a sapien vitae nunc mollis efficitur quis eu
+                        purus. Donec nec orci pharetra, ullamcorper orci eu,
+                        gravida dolor. Morbi at rutrum nibh. Sed a erat vitae
+                        ipsum mollis tincidunt sed nec orci.
+                    </p>
+                    <div class="tm-text-right">
+                        <a href="#gallery" class="tm-btn tm-btn-next">Next page</a>
+                    </div>
+                    <hr class="tm-hr tm-ml tm-sm-mt-30">
+                    <div class="tm-row">
+                        <div class="tm-col">
+                            <div class="tm-text-center tm-my-50">
+                                <i class="fas fa-street-view fa-3x"></i>
+                            </div>
+                            <h3 class="tm-text-primary">Send Your Titan To
+                                School</h3>
+                            <p>
+                                Fusce mi sapien, faucibus ut tortor a, tempus
+                                laoreet magna. Nulla felis ipsum, lobortis eu
+                                efficitur eget, malesuada id lacus.
+                            </p>
+                        </div>
+                        <div class="tm-col">
+                            <div class="tm-text-center tm-my-50">
+                                <i class="fas fa-bullseye fa-3x"></i>
+                            </div>
+                            <h3 class="tm-text-primary">Trade Your Titan</h3>
+                            <p>
+                                Nullam pellentesque accumsan hendrerit. Class
+                                aptent taciti sociosqu ad litora torquent per
+                                conubia nostra, per inceptos himenaeos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services right -->
+                <div class="tm-section-col tm-parallax" data-parallax="scroll"
+                    data-image-src="img/parallax02.jpg"></div>
+            </div> <!-- #services -->
+
+            <div id="gallery" class="tm-content tm-content-small-top">
+                <div class="tm-gallery-container">
+                    <h2 class="tm-text-primary tm-text-right tm-gallery-header">Our
+                        Gallery</h2>
+                    <div class="tm-gallery tm-mb-80">
+                        <figure class="effect-goliath tm-gallery-item">
+                            <img src="img/gallery/titan_eren.jpg" alt="Image"/>
+                            <figcaption>
+                                <h2>Number One</h2>
+                                <p>Best Template Site</p>
+                                <a href="img/gallery/titan_chronos.png">View
+                                    more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-goliath tm-gallery-item">
+                            <img src="img/gallery/titan_io.png" alt="Image"/>
+                            <figcaption>
+                                <h2>Number 2</h2>
+                                <p>Tooplate HTML CSS</p>
+                                <a href="img/gallery/titan_milo.jpg">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-goliath tm-gallery-item">
+                            <img src="img/gallery/titan_vespa.png" alt="Image"/>
+                            <figcaption>
+                                <h2>Number 3</h2>
+                                <p>Free Template</p>
+                                <a href="img/gallery/img-03.jpg">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-goliath tm-gallery-item">
+                            <img src="img/gallery/titan_io.png" alt="Image"/>
+                            <figcaption>
+                                <h2>Number 4</h2>
+                                <p>Free Download</p>
+                                <a href="img/gallery/titan_chronos.png">View
+                                    more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-goliath tm-gallery-item">
+                            <img src="img/gallery/titan_io.png" alt="Image"/>
+                            <figcaption>
+                                <h2>Number 5</h2>
+                                <p>Mobile Ready</p>
+                                <a href="img/gallery/titan_io.png">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-goliath tm-gallery-item">
+                            <img src="img/gallery/titan_io.png" alt="Image"/>
+                            <figcaption>
+                                <h2>Number 6</h2>
+                                <p>Responsive Design</p>
+                                <a href="img/gallery/titan_io.png">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-goliath tm-gallery-item">
+                            <img src="img/gallery/titan_io.png" alt="Image"/>
+                            <figcaption>
+                                <h2>Number 7</h2>
+                                <p>Custom HTML CSS</p>
+                                <a href="img/gallery/titan_io.png">View more</a>
+                            </figcaption>
+                        </figure>
+
+                        <figure class="effect-goliath tm-gallery-item">
+                            <img src="img/gallery/titan_io.png" alt="Image"/>
+                            <figcaption>
+                                <h2>Number 5</h2>
+                                <p>Mobile Ready</p>
+                                <a href="img/gallery/titan_io.png">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-goliath tm-gallery-item">
+                            <img src="img/gallery/titan_io.png" alt="Image"/>
+                            <figcaption>
+                                <h2>Number 6</h2>
+                                <p>Responsive Design</p>
+                                <a href="img/gallery/titan_io.png">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-goliath tm-gallery-item">
+                            <img src="img/gallery/titan_io.png" alt="Image"/>
+                            <figcaption>
+                                <h2>Number 7</h2>
+                                <p>Custom HTML CSS</p>
+                                <a href="img/gallery/titan_io.png">View more</a>
+                            </figcaption>
+                        </figure>
+
+                        <figure class="effect-goliath tm-gallery-item">
+                            <img src="img/gallery/titan_io.png" alt="Image"/>
+                            <figcaption>
+                                <h2>Number 5</h2>
+                                <p>Mobile Ready</p>
+                                <a href="img/gallery/titan_io.png">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-goliath tm-gallery-item">
+                            <img src="img/gallery/titan_io.png" alt="Image"/>
+                            <figcaption>
+                                <h2>Number 6</h2>
+                                <p>Responsive Design</p>
+                                <a href="img/gallery/titan_io.png">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-goliath tm-gallery-item">
+                            <img src="img/gallery/titan_io.png" alt="Image"/>
+                            <figcaption>
+                                <h2>Number 7</h2>
+                                <p>Custom HTML CSS</p>
+                                <a href="img/gallery/titan_io.png">View more</a>
+                            </figcaption>
+                        </figure>
+
+                    </div>
+                    <div class="tm-paging tm-mb-130"></div>
+                </div>
+            </div>
+
+            <div id="about" class="tm-section">
+                <!-- About left -->
+                <div class="tm-section-col tm-content tm-content-small">
+                    <h2 class="tm-text-primary">About Us</h2>
+                    <p>
+                        You can find more free templates on Too CSS collections.
+                        Please visit Too CSS website to see a great list of HTML
+                        CSS templates. Simply type it in Google search.
+                    </p>
+                    <p>
+                        You may help us by spreading a word about our website or
+                        make a small contribution by contacting Tooplate
+                        directly. That will be very helpful for us. Thank you.
+                    </p>
+                    <hr class="tm-hr tm-mb-50">
+                    <p class="tm-mb-50">
+                        Quisque luctus feugiat dui eget malesuada. Donec rutrum,
+                        nibh vel lobortis placerat, leo enim feugiat arcu,
+                        ornare imperdiet urna sem vitae tellus.
+                    </p>
+                    <div class="tm-text-right tm-mb-130">
+                        <a href="#contact" class="tm-btn tm-btn-next">Contact Us</a>
+                    </div>
+                </div>
+
+                <!-- About right -->
+                <div class="tm-section-col tm-parallax" data-parallax="scroll"
+                    data-image-src="img/parallax02.jpg"></div>
+            </div> <!-- #about -->
+
+            <div id="contact" class="tm-section">
+                <!-- Contact left -->
+                <div class="tm-section-col tm-content tm-content-medium">
+                    <h2 class="tm-text-primary">Register Your Titan</h2>
+
+
+
+                    <form id="contact-form" action="#" th:action="@{/addtitans}"
+                        th:object="${titan}" method="post"
+                        class="tm-contact-form tm-mb-400">
+
+
+                        <div class="form-group">
+
+                            <input type="text" th:field="*{name}"
+                                class="form-control rounded-0" id="name"
+                                placeholder="Name" autofocus>
+                            <span th:if="${#fields.hasErrors('name')}"
+                                th:errors="*{name}" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+
+                            <input type="text" th:field="*{race}"
+                                class="form-control rounded-0" id="race"
+                                placeholder="Race" autofocus>
+                            <span th:if="${#fields.hasErrors('race')}"
+                                th:errors="*{race}" class="text-danger"></span>
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <input type="text" th:field="*{age}"
+                                class="form-control rounded-0" id="race"
+                                placeholder="Age" autofocus>
+                            <span th:if="${#fields.hasErrors('age')}"
+                                th:errors="*{age}" class="text-danger"></span>
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <textarea rows="6" name="description"
+                                th:field="*{description}" class="form-control
+                                rounded-0" autofocus placeholder="Description"></textarea>
+                            <span th:if="${#fields.hasErrors('description')}"
+                                th:errors="*{description}" class="text-danger"></span>
+                        </div>
+
+
+
+
+                        <div class="form-group tm-text-right">
+                            <button type="submit" class="tm-btn">Submit</button>
+                        </div>
+                    </form>
+
+                    <p>
+                        Pellentesque nec dui pellentesque, fermentum turpis eu,
+                        facilisis libero. Vestibulum fringilla nulla augue, at
+                        consequat metus facilisis condimentum.
+                    </p>
+
+
+
+                    <footer class="tm-copyright tm-text-small">
+                        Copyright 2021 Tooplate Design - Vertex
+
+                        - Design: <a rel="nofollow"
+                            href="https://www.tooplate.com" class="tm-text-link"
+                            target="_parent">Tooplate</a>
+                    </footer>
+                </div>
+
+
+
+
+                <!-- Contact right -->
+                <div class="tm-section-col tm-parallax tm-relative"
+                    data-parallax="scroll"
+                    data-image-src="img/vertex-bg-04.jpg">
+                    <!-- Map -->
+                    <div class="mapouter">
+                        <div class="gmap-canvas">
+                            <iframe width="100%" height="420" id="gmap_canvas"
+                                src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                frameborder="0" scrolling="no" marginheight="0"
+                                marginwidth="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- #contact -->
+        </main>
+
+        <script src="js/plugins.js"></script>
+        <script>
+        $(window).on("load", function() {
+            $('body').addClass('loaded');
+        });
+
+        $(function(){
+            
+            /*************** Navigation *****************/
+
+            const tmMainNav = $("#tm-main-nav");
+
+            tmMainNav.singlePageNav({
+                filter: ':not(.external)'
+            });
+
+            $('.navbar-toggler').click(function(e) {
+                e.stopPropagation();
+                tmMainNav.toggleClass('show');
+            });
+
+            $("html").click(function(e) {
+                $("#tm-main-nav").removeClass("show");
+            });
+
+            /****************** Smooth Scrolling *****************/
+
+            $(".tm-btn-next").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function(){
+                        // window.location.hash = hash;
+                    });
+                }
+            });
+
+            $('.tm-brand-icon').on('click', function(event) {
+                $('html, body').animate({
+                        scrollTop: $('#intro').offset().top
+                    }, 800);
+            });
+
+            /****************** Gallery ******************/
+
+            const galleryItems = document.querySelector(".tm-gallery").children;
+            const itemsPerPage = 10;
+            const totalPages = Math.ceil(galleryItems.length / itemsPerPage);
+            const pageAttribute = 'data-page';
+
+            function setPagination(currentPage) {
+                for(let i = 1; i <= totalPages; i++) {
+                    var $pager = '';
+                    
+                    if(currentPage == i) {
+                        $pager = $('<a href="javascript:void(0);" class="active tm-paging-link" '+pageAttribute+'="'+i+'"></a>');
+                    } else {
+                        $pager = $('<a href="javascript:void(0);" class="tm-paging-link" '+pageAttribute+'="'+i+'"></a>');
+                    }
+
+                    $pager.html(i);
+
+                    $pager.click(function(){ 
+                        $('.tm-paging-link').removeClass("active");
+                        $(this).addClass('active');
+                        var page = $(this).eq(0).attr(pageAttribute);
+                        showItems(page);
+                    });
+
+                    $pager.appendTo($('.tm-paging'));
+                }
+            }
+
+            function showItems(currentPage) {
+                for(let i = 0; i < galleryItems.length; i++) {
+                    galleryItems[i].classList.remove("show");
+                    galleryItems[i].classList.add("hide");
+
+                    if(i >= (currentPage * itemsPerPage) - itemsPerPage && i < currentPage * itemsPerPage) {
+                        galleryItems[i].classList.remove("hide");
+                        galleryItems[i].classList.add("show");
+                    }
+                }
+            }
+
+            setPagination(1);
+            showItems(1);
+
+            /****************** Magnific Popup ***********/
+
+            $('.tm-gallery').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        });
+
+        function submitFunc(){ 
+            let web = window.location.origin + '/index/signin'; console.log(web);
+            var frm = document.getElementById('form-sub'); frm.action = web; 
+        }
+    </script>
+    </body>
+</html>
