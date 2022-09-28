@@ -51,7 +51,7 @@ https://www.tooplate.com/view/2124-vertex
                 <li class="nav-item">
                     <a href="#services" class="nav-link">
                         Races
-                    </a>
+                    </a> 
                 </li>
                 <li class="nav-item">
                     <a href="#gallery" class="nav-link">
@@ -59,8 +59,9 @@ https://www.tooplate.com/view/2124-vertex
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a th:href="@{/blockchain}" class="nav-link">
-                        NFT
+                    <a onclick='function NewTabNav(e) {  let urls=
+                        window.location.origin+ "/nftarena"; console.log(urls); console.log(window.location.origin); window.open( urls,"_blank"); e.preventDefault(); }; NewTabNav(); ' class="nav-link">
+                        NFT ARENA
                     </a>
                 </li>
                 <li class="nav-item">
@@ -75,65 +76,26 @@ https://www.tooplate.com/view/2124-vertex
         <main>
 
             <div id="intro" class="tm-section">
-             
+
                 <!-- Intro left -->
                 <div class="tm-section-col tm-content">
 
-                    <div th:switch="${#lists.size(titans)}" class="container
+                    <div class="container
                         my-2">
                         <div class="row">
                             <div class="col-md-1"></div>
                             <div class="col-md-10">
-                                <div>
-                                    <h2>There's no one in the arena yet</h2>
-                                    <p class="text-success">Send a titan  in the NFTArena!</p>
-                                </div>
+                                 
                                 <div>
                                     <h2 class="my-5">The NFTArena Titans</h2>
-                                    <div>
-                                        <div class="tm-media">
-                                            <img src="img/races/titan_race2.jpg"
-                                                alt="Intro image">
-                                            <div class="tm-media-body">
-                                             
-                                                <p class="tm-mb-20
-                                                    tm-text-small"> Race <span
-                                                        class="tm-text-secondary
-                                                        tm-media-span
-                                                        tm-text-small">
-                                                    </span>
-                                                </p>
-                                               
+                                    <div> <!---Arena----->
+                                        <div class="tm-section-col tm-content
+                                            nft-gallery">
 
 
-                                                <p class="tm-mb-20
-                                                    tm-text-small">
-                                                    This is an additional
-                                                    description for this site.
-                                                    You have to send your titan
-                                                    to NFT school or NFT Arena
-                                                    just click the link here.
-                                                    Level up your titans. This
-                                                    site is connected to
-                                                    Kaleido blockchain test
-                                                    network.
-                                                    <span
-                                                        class="tm-text-secondary
-                                                        tm-media-span
-                                                        tm-text-small">
-                                                        <strong> <button >Get Details</button></strong>
-                                                    </span>
-                                                    <span
-                                                        class="tm-text-secondary
-                                                        tm-media-span
-                                                        tm-text-small">
-                                                        Added on Monday . 21
-                                                        June 2021
-                                                    </span></p>
-                                                <hr class="tm-hr tm-mr">
-                                            </div>
+
                                         </div>
-                                    </div>
+                                    </div><!---Arena--->
                                 </div>
 
                             </div>
@@ -176,8 +138,7 @@ https://www.tooplate.com/view/2124-vertex
                             <div class="tm-text-center tm-my-50">
                                 <i class="fas fa-street-view fa-3x"></i>
                             </div>
-                            <h3 class="tm-text-primary">Send Your Titan To
-                                School</h3>
+                            <h3 class="tm-text-primary">Send To Arena</h3>
                             <p>
                                 Fusce mi sapien, faucibus ut tortor a, tempus
                                 laoreet magna. Nulla felis ipsum, lobortis eu
@@ -354,14 +315,14 @@ https://www.tooplate.com/view/2124-vertex
 
             <div id="contact" class="tm-section">
                 <!-- Contact left -->
-                <div class="tm-section-col tm-content tm-content-medium">
+                <div class="tm-section-col tm-content tm-content-medium"><br>
                     <h2 class="tm-text-primary">Register Your Titan</h2>
 
 
 
                     <form id="contact-form" action="#" th:action="@{/addtitans}"
                         th:object="${titan}" method="post"
-                        class="tm-contact-form tm-mb-400">
+                        class="tm-contact-form tm-mb-400" style="min-width:450px!important;padding:0px;">
 
 
                         <div class="form-group">
@@ -412,7 +373,7 @@ https://www.tooplate.com/view/2124-vertex
                         </div>
                     </form>
 
-                    <p>
+                    <p><br><br>
                         Pellentesque nec dui pellentesque, fermentum turpis eu,
                         facilisis libero. Vestibulum fringilla nulla augue, at
                         consequat metus facilisis condimentum.
@@ -432,40 +393,68 @@ https://www.tooplate.com/view/2124-vertex
 
 
 
-                <!-- Contact right -->
-                <div class="tm-section-col tm-parallax tm-relative"
-                    data-parallax="scroll"
-                    data-image-src="img/vertex-bg-04.jpg">
-                    <!-- Map -->
-                    <div class="mapouter">
-                        <div class="gmap-canvas">
-                            <iframe width="100%" height="420" id="gmap_canvas"
-                                src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                frameborder="0" scrolling="no" marginheight="0"
-                                marginwidth="0"></iframe>
-                        </div>
-                    </div>
-                </div>
+                
             </div> <!-- #contact -->
         </main>
 
         <script src="js/plugins.js"></script>
         <script>
                document.onreadystatechange = function () {
-                alert("hiy");
+               
                 if (document.readyState == "interactive") {
                   
                    var getTitan_url ="https://u0opegxh80-u0at1qn1u7-connect.us0-aws.kaleido.io/gateways/u0gyxqilkp/0x43613e60a4208ebaa953a2661e1c1cb6199e0be7/getallinarena?kld-from=0x74d067ee97df4f2b30076f17de92cafeacb02e1c";
                    const xhr = new XMLHttpRequest();
-                    xhr.open("POST", getTitan_url, true);
+                   var credentials= window.btoa('u0e71zxolh:dfi514xRmN3IZs_t7qSiAtJVPlZNysolX7elhnLlSKY');
+ 
+                    
+                   xhr.open("POST", getTitan_url, false);
+                   xhr.setRequestHeader("Authorization","Basic "+credentials); 
+                    console.log(xhr);
                     xhr.onload = (e) => {
                     if (xhr.readyState === 4) {
-                        console.log(xhr.responseText);
-                        console.log(xhr.responseText);
-                        console.log(xhr.responseText);
+                        console.log(xhr.responseText); 
+
                         if (xhr.status === 200) {
-                        console.log(xhr.responseText);
-                        alert("status 200")
+                            var outs = JSON.parse(xhr.responseText);
+                            console.log(outs); console.log(outs);
+                            console.log(outs.output);
+                            var str_ar = outs.output.split("],"); console.log(str_ar); console.log(str_ar); 
+                           
+                            console.log("str_ar");  console.log(str_ar); 
+                            let str_h = "";
+                            for (let i = 0; i < str_ar.length; i++) {
+
+                                let text = str_ar[i];
+                                let player = text.substring( text.indexOf("player:"), text.indexOf(",")  ); player = player.replace("player:", "");  
+                                let opo  = text.substring( text.indexOf("opponent:")   ); opo = opo.replace("opponent:", "");  
+                                let race = text.substring( text.indexOf("race:")  ); race = race.replace("race:", "");  
+                                race = race.substring( 0, race.indexOf(",")  ); 
+                                console.log(text);
+                                console.log(race + " " + player+" " +opo);
+                                    str_h = str_h +  `
+                                    <div class="tm-media" style="min-width:400px!important;">
+                                                <img src="img/races/titan_race1.png" style="min-width:60px!important;height:130px;" alt="Intro image">
+                                                <div class="tm-media-body">
+                                                    
+                                                    <p class="tm-mb-20 tm-text-small">
+                                                       <h4> NFT Arena battles <strong> `+ player  +`</strong></h4>
+                                                    </p>
+                                                    <span class="tm-text-secondary tm-media-span tm-text-small">
+                                                      Current Round:  <strong> `+ player  +`</strong> vs `+ opo+`
+                                                    </span>
+                                                     <span class="tm-text-secondary tm-media-span tm-text-small">
+                                                      Details:  <strong> `+ player  +`</strong> is from  `+ race+`
+                                                    </span>
+                                                    <hr class="tm-hr tm-mr">
+                                                </div>
+                                            </div> ` ;         
+
+                            }
+
+                            $( "div.nft-gallery" ).html(str_h );
+                                console.log(str_h);
+
                         } else {
                         console.error(xhr.statusText);
                         }

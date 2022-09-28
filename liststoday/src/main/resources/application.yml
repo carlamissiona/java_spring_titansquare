@@ -1,0 +1,6 @@
+server:
+  port: 8044
+spring:
+  datasource:
+    generate-unique-name: false
+    name: liststoday  

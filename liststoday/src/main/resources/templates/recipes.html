@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Tooplate">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+    <title>Lists Today</title>
+
+    <!-- Bootstrap core CSS --> 
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" th:href="@{/css/fontawesome.css}">
+    <link rel="stylesheet" th:href="@{/css/tooplate-main.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.css}">
+    <style>
+      div.slides{background-image: url("images/contact-bg.jpg");}
+ 
+      div#1 {
+        background-image: url("images/contact-bg.jpg"), url("paper.gif"); 
+      }
+
+    </style>
+  </head>
+<!--
+Tooplate 2113 Earth
+https://www.tooplate.com/view/2113-earth
+-->
+  <body>
+
+    <div class="sequence">
+  
+      <div class="seq-preloader">
+        <svg width="39" height="16" viewBox="0 0 39 16" xmlns="http://www.w3.org/2000/svg" class="seq-preload-indicator"><g fill="#F96D38"><path class="seq-preload-circle seq-preload-circle-1" d="M3.999 12.012c2.209 0 3.999-1.791 3.999-3.999s-1.79-3.999-3.999-3.999-3.999 1.791-3.999 3.999 1.79 3.999 3.999 3.999z"/><path class="seq-preload-circle seq-preload-circle-2" d="M15.996 13.468c3.018 0 5.465-2.447 5.465-5.466 0-3.018-2.447-5.465-5.465-5.465-3.019 0-5.466 2.447-5.466 5.465 0 3.019 2.447 5.466 5.466 5.466z"/><path class="seq-preload-circle seq-preload-circle-3" d="M31.322 15.334c4.049 0 7.332-3.282 7.332-7.332 0-4.049-3.282-7.332-7.332-7.332s-7.332 3.283-7.332 7.332c0 4.05 3.283 7.332 7.332 7.332z"/></g></svg>
+      </div>
+      
+    </div>
+    
+        <div class="logo">
+            <h1>Lists Today</h1>
+            <h2>LT</h2>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#"><img src="images/icon-1.png" alt="home" onclick=" location.href = window.location.origin+'/home';" > <em>Home</em> </a></li>
+            <li><a href="#1"><img src="images/icon-2.png" alt=""> <em>Recipes</em></a></li> 
+          </ul>
+        </nav>
+        
+    <div class="slides">
+         
+        <div class="slide" id="1" >
+          <div class="con"><br><br><h3  style="color:#fff;">List Recipes</h3> <span style="color:#fff;">Free API And News Site</span></div> 
+          
+          <div class="content second-content" style="margin-top:-160px!important;">
+                <div id='tabs'>
+                  <ul>                   
+                    <li><a href='#tabs-1'><span class='fa fa-users'></span></a></li> 
+                  </ul>        
+                   
+                  <section class='tabs-content'>
+                    <article id='tabs-1' style="min-height: 110%!important;" th:switch="${#lists.size(recipes)}">
+                     
+                      <p>                      
+                        <div th:case="'0'">
+                          <h2>You haven't submitted any recipes yet!</h2>
+                          <p class="text-success">Add a recipe by the
+                              link /add-recipes!</p>
+                      </div>
+                      <div th:case="*">
+                          <h2 class="my-5"  style="line-height:10px;">Your Recipe</h2>
+
+                          <table class="table table-hover" style="font-size:12px;line-height:8px;">
+                            <thead>
+                              <tr>
+                                <th scope="col">Title</th>
+                                <th scope="col">Content</th>
+                                <th scope="col">View</th> 
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="table-active" th:each="recipe : ${recipes}">
+                                <th scope="row"></th>
+                                <td th:text="${recipe.content}"></td>
+                                <td> <a th:href="@{/recipes-view/{id}(id=${recipe.id})}"> View </a></td> 
+                              </tr> 
+                            </tbody>
+                          </table>
+ 
+                        </div>
+
+                      </p> <br><br> <br>
+                    </article>
+                  
+                  </section>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script  th:src="@{/js/jquery.min.js}"></script>
+    <script  th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+
+    <!-- Additional Scripts --> 
+    <script th:src="@{/js/owl.js}"></script>
+    <script th:src="@{/js/accordations.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            // navigation click actions 
+            $('.scroll-link').on('click', function(event){
+                event.preventDefault();
+                var sectionID = $(this).attr("data-id");
+                scrollToID('#' + sectionID, 750);
+            });
+            // scroll to top action
+            $('.scroll-top').on('click', function(event) {
+                event.preventDefault();
+                $('html, body').animate({scrollTop:0}, 'slow');         
+            });
+            // mobile nav toggle
+            $('#nav-toggle').on('click', function (event) {
+                event.preventDefault();
+                $('#main-nav').toggleClass("open");
+            });
+        });
+        // scroll function
+        function scrollToID(id, speed){
+            var offSet = 0;
+            var targetOffset = $(id).offset().top - offSet;
+            var mainNav = $('#main-nav');
+            $('html,body').animate({scrollTop:targetOffset}, speed);
+            if (mainNav.hasClass("open")) {
+                mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+                mainNav.removeClass("open");
+            }
+        }
+        if (typeof console === "undefined") {
+            console = {
+                log: function() { }
+            };
+        }
+    </script>
+
+  </body>
+</html> 

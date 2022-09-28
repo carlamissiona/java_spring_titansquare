@@ -57,8 +57,9 @@ https://www.tooplate.com/view/2124-vertex
                 </a>
             </li>
             <li class="nav-item">
-                <a th:href="@{/nftarena}" class="nav-link">
-                    NFT Arena
+                <a onclick='function NewTabNav(e) {  let urls=
+                    window.location.origin+ "/nftarena"; console.log(urls); console.log(window.location.origin); window.open( urls,"_blank"); e.preventDefault(); }; NewTabNav(); ' class="nav-link">
+                    NFT ARENA
                 </a>
             </li>
             <li class="nav-item">
@@ -178,7 +179,7 @@ https://www.tooplate.com/view/2124-vertex
                         </figcaption>			
                     </figure>
                     <figure class="effect-goliath tm-gallery-item">
-                        <img src="img/gallery/titan_io.png" alt="Image"/>
+                        <img src="img/gallery/titan_eren.jpg" alt="Image"/>
                         <figcaption>
                             <h2>Number 2</h2>
                             <p>Tooplate HTML CSS</p>
@@ -186,7 +187,7 @@ https://www.tooplate.com/view/2124-vertex
                         </figcaption>			
                     </figure>
                     <figure class="effect-goliath tm-gallery-item">
-                        <img src="img/gallery/titan_vespa.png" alt="Image"/>
+                        <img src="img/gallery/titan_eren.jpg" alt="Image"/>
                         <figcaption>
                             <h2>Number 3</h2>
                             <p>Free Template</p>
@@ -194,7 +195,7 @@ https://www.tooplate.com/view/2124-vertex
                         </figcaption>			
                     </figure>
                     <figure class="effect-goliath tm-gallery-item">
-                        <img src="img/gallery/titan_io.png" alt="Image"/>
+                        <img src="img/gallery/titan_milo.jpg" alt="Image"/>
                         <figcaption>
                             <h2>Number 4</h2>
                             <p>Free Download</p>
@@ -202,11 +203,36 @@ https://www.tooplate.com/view/2124-vertex
                         </figcaption>			
                     </figure>
                     <figure class="effect-goliath tm-gallery-item">
-                        <img src="img/gallery/titan_io.png" alt="Image"/>
+                        <img src="img/gallery/titan_eren.jpg" alt="Image"/>
                         <figcaption>
                             <h2>Number 5</h2>
                             <p>Mobile Ready</p>
                             <a href="img/gallery/titan_io.png">View more</a>
+                        </figcaption>			
+                    </figure>
+                    <figure class="effect-goliath tm-gallery-item">
+                        <img src="img/gallery/titan_milo.jpg" alt="Image"/>
+                        <figcaption>
+                            <h2>Number 6</h2>
+                            <p>Responsive Design</p>
+                            <a href="img/gallery/titan_io.png">View more</a>
+                        </figcaption>			
+                    </figure>
+                    <figure class="effect-goliath tm-gallery-item">
+                        <img src="img/gallery/titan_eren.jpg" alt="Image"/>
+                        <figcaption>
+                            <h2>Number 7</h2>
+                            <p>Custom HTML CSS</p>
+                            <a href="img/gallery/titan_io.png">View more</a>
+                        </figcaption>			
+                    </figure>
+                   
+                    <figure class="effect-goliath tm-gallery-item">
+                        <img src="img/gallery/titan_eren.jpg" alt="Image"/>
+                        <figcaption>
+                            <h2>Number 5</h2>
+                            <p>Mobile Ready</p>
+                            <a href="img/gallery/titan_milo.png">View more</a>
                         </figcaption>			
                     </figure>
                     <figure class="effect-goliath tm-gallery-item">
@@ -235,7 +261,7 @@ https://www.tooplate.com/view/2124-vertex
                         </figcaption>			
                     </figure>
                     <figure class="effect-goliath tm-gallery-item">
-                        <img src="img/gallery/titan_io.png" alt="Image"/>
+                        <img src="img/gallery/titan_eren.jpg" alt="Image"/>
                         <figcaption>
                             <h2>Number 6</h2>
                             <p>Responsive Design</p>
@@ -243,32 +269,7 @@ https://www.tooplate.com/view/2124-vertex
                         </figcaption>			
                     </figure>
                     <figure class="effect-goliath tm-gallery-item">
-                        <img src="img/gallery/titan_io.png" alt="Image"/>
-                        <figcaption>
-                            <h2>Number 7</h2>
-                            <p>Custom HTML CSS</p>
-                            <a href="img/gallery/titan_io.png">View more</a>
-                        </figcaption>			
-                    </figure>
-                   
-                    <figure class="effect-goliath tm-gallery-item">
-                        <img src="img/gallery/titan_io.png" alt="Image"/>
-                        <figcaption>
-                            <h2>Number 5</h2>
-                            <p>Mobile Ready</p>
-                            <a href="img/gallery/titan_io.png">View more</a>
-                        </figcaption>			
-                    </figure>
-                    <figure class="effect-goliath tm-gallery-item">
-                        <img src="img/gallery/titan_io.png" alt="Image"/>
-                        <figcaption>
-                            <h2>Number 6</h2>
-                            <p>Responsive Design</p>
-                            <a href="img/gallery/titan_io.png">View more</a>
-                        </figcaption>			
-                    </figure>
-                    <figure class="effect-goliath tm-gallery-item">
-                        <img src="img/gallery/titan_io.png" alt="Image"/>
+                        <img src="img/gallery/titan_eren.jpg" alt="Image"/>
                         <figcaption>
                             <h2>Number 7</h2>
                             <p>Custom HTML CSS</p>
@@ -306,78 +307,85 @@ https://www.tooplate.com/view/2124-vertex
 
         <div id="contact" class="tm-section">
             <!-- Contact left -->
-            <div class="tm-section-col tm-content tm-content-small">
+            <div class="tm-section-col tm-content tm-content-medium"><br>
                 <h2 class="tm-text-primary">Register Your Titan</h2>
 
 
 
-                <form id="contact-form"  action="#" th:action="@{/addtitans}" th:object="${titan}" method="post" class="tm-contact-form tm-mb-400">
-                    
- 
-                    <div class="form-group">
-                         
-                        <input type="text" th:field="*{name}" class="form-control rounded-0" id="name" placeholder="Name" autofocus>
-                        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                       
-                        <input type="text" th:field="*{race}" class="form-control rounded-0" id="race" placeholder="Race" autofocus>
-                        <span th:if="${#fields.hasErrors('race')}" th:errors="*{race}" class="text-danger"></span>
-                    </div>
-        
+                <form id="contact-form" action="#" th:action="@{/addtitans}"
+                    th:object="${titan}" method="post"
+                    class="tm-contact-form tm-mb-400" style="min-width:450px!important;padding:0px;">
 
 
                     <div class="form-group">
-                         
-                        <input type="text" th:field="*{age}" class="form-control rounded-0" id="race" placeholder="Age" autofocus>
-                        <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="text-danger"></span>
+
+                        <input type="text" th:field="*{name}"
+                            class="form-control rounded-0" id="name"
+                            placeholder="Name" autofocus>
+                        <span th:if="${#fields.hasErrors('name')}"
+                            th:errors="*{name}" class="text-danger"></span>
                     </div>
-                    
+
+                    <div class="form-group">
+
+                        <input type="text" th:field="*{race}"
+                            class="form-control rounded-0" id="race"
+                            placeholder="Race" autofocus>
+                        <span th:if="${#fields.hasErrors('race')}"
+                            th:errors="*{race}" class="text-danger"></span>
+                    </div>
+
 
 
                     <div class="form-group">
-                         
-                        <textarea rows="6" name="description" th:field="*{description}"  class="form-control rounded-0" autofocus placeholder="Description"></textarea>
-                       
-                        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="text-danger"></span>
-                    </div>
-                    
 
-                    
-                     
+                        <input type="text" th:field="*{age}"
+                            class="form-control rounded-0" id="race"
+                            placeholder="Age" autofocus>
+                        <span th:if="${#fields.hasErrors('age')}"
+                            th:errors="*{age}" class="text-danger"></span>
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <textarea rows="6" name="description"
+                            th:field="*{description}" class="form-control
+                            rounded-0" autofocus placeholder="Description"></textarea>
+                        <span th:if="${#fields.hasErrors('description')}"
+                            th:errors="*{description}" class="text-danger"></span>
+                    </div>
+
+
+
+
                     <div class="form-group tm-text-right">
                         <button type="submit" class="tm-btn">Submit</button>
                     </div>
                 </form>
 
-                <p>
-                    Pellentesque nec dui pellentesque, fermentum turpis eu, facilisis libero. Vestibulum fringilla nulla augue, at consequat metus facilisis condimentum.
-                </p> 
-               
+                <p><br><br>
+                    Pellentesque nec dui pellentesque, fermentum turpis eu,
+                    facilisis libero. Vestibulum fringilla nulla augue, at
+                    consequat metus facilisis condimentum.
+                </p>
+
 
 
                 <footer class="tm-copyright tm-text-small">
-                    Copyright 2021 Tooplate Design - Vertex 
-                    
-                    - Design: <a rel="nofollow" href="https://www.tooplate.com" class="tm-text-link" target="_parent">Tooplate</a>
-                </footer>              
+                    Copyright 2021 Tooplate Design - Vertex
+
+                    - Design: <a rel="nofollow"
+                        href="https://www.tooplate.com" class="tm-text-link"
+                        target="_parent">Tooplate</a>
+                </footer>
             </div>
+
+
+
+
             
-
-
- 
-            <!-- Contact right -->
-            <div class="tm-section-col tm-parallax tm-relative" data-parallax="scroll" data-image-src="img/vertex-bg-04.jpg">
-                <!-- Map -->
-                <div class="mapouter">
-                    <div class="gmap-canvas">
-                        <iframe width="100%" height="420" id="gmap_canvas"
-                            src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                    </div> 
-                </div>
-            </div>
         </div> <!-- #contact -->
     </main>
 

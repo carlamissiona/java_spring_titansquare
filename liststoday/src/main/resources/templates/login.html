@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Tooplate">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+    <title>Lists Today</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="css/fontawesome.css">
+    <link rel="stylesheet" href="css/tooplate-main.css">
+    <link rel="stylesheet" href="css/owl.css">
+
+  </head>
+<!--
+Tooplate 2113 Earth
+https://www.tooplate.com/view/2113-earth
+-->
+  <body>
+
+    <div class="sequence">
+  
+      <div class="seq-preloader">
+        <svg width="39" height="16" viewBox="0 0 39 16" xmlns="http://www.w3.org/2000/svg" class="seq-preload-indicator"><g fill="#F96D38"><path class="seq-preload-circle seq-preload-circle-1" d="M3.999 12.012c2.209 0 3.999-1.791 3.999-3.999s-1.79-3.999-3.999-3.999-3.999 1.791-3.999 3.999 1.79 3.999 3.999 3.999z"/><path class="seq-preload-circle seq-preload-circle-2" d="M15.996 13.468c3.018 0 5.465-2.447 5.465-5.466 0-3.018-2.447-5.465-5.465-5.465-3.019 0-5.466 2.447-5.466 5.465 0 3.019 2.447 5.466 5.466 5.466z"/><path class="seq-preload-circle seq-preload-circle-3" d="M31.322 15.334c4.049 0 7.332-3.282 7.332-7.332 0-4.049-3.282-7.332-7.332-7.332s-7.332 3.283-7.332 7.332c0 4.05 3.283 7.332 7.332 7.332z"/></g></svg>
+      </div>
+      
+    </div>
+    
+        <div class="logo">
+            <h1>Lists Today</h1>
+            <h2>LT</h2>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#1"><img src="images/icon-1.png" alt=""  onclick=" location.href = window.location.origin+'/index'; "> <em>Home</em></a></li>
+            <li><a href="#2"><img src="images/icon-3.png" alt=""> <em>Login</em></a></li> 
+          </ul>
+        </nav>
+        
+        <div class="slides">
+          <div class="slide" id="1">
+              <div id="slider-wrapper">
+                  <div id="image-slider">
+                    <ul>
+                      
+                      <li class="active-img">
+                        <div class="slide-caption"> 
+
+
+                          <div th:if="${error}">
+                            Unable to login. Check your username and password.
+                            <p>New here? Click
+                              <a th:href="@{/register}">here</a> to register.</p>
+                          </div>
+                       
+
+                          <div class="container-fluid" style="margin-right:55em;">
+                                  <form id="contact" th:action="@{/login}" method="post" style="max-height:300px!important;">
+                                      <div class="row">
+                                        <div class="col-md-4">
+                                          <h3 style="color:#ffff;">Login </h3>
+                                        </div>
+                                        <div class="col-md-8">
+                                          <fieldset class="form-group"> 
+                                            <label for="username" style="color:#ffff;float:left;margin-right:15px;">Username: </label>
+                                            <input type="text" style="max-width:320px!important;" class="form-control" name="username" id="username" /><br/>
+                                          </fieldset>
+                                    
+                                        
+                                          <fieldset class="form-group"> 
+                                            <label for="password" style="color:#ffff;float:left;margin-right:15px;">Password: </label>
+                                            <input type="password" style="max-width:320px!important;" class="form-control" name="password" id="password" /><br/>
+                                            <button class="btn btn-info" type="submit" value="Login" onclick="function subfr(){ document.getElementById('loginForm').submit(); }; subfr();">Login</button>
+                                          </fieldset>
+                                    
+                                          
+                                      </div>
+                                  
+                              </div></form>
+                          </div>
+
+                        </div>
+                      </li> 
+                                       
+                    </ul>
+                  </div>
+               
+              </div>
+          </div>        
+       
+        </div>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="js/owl.js"></script>
+    <script src="js/accordations.js"></script>
+    <script src="js/main.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            // navigation click actions 
+            $('.scroll-link').on('click', function(event){
+                event.preventDefault();
+                var sectionID = $(this).attr("data-id");
+                scrollToID('#' + sectionID, 750);
+            });
+            // scroll to top action
+            $('.scroll-top').on('click', function(event) {
+                event.preventDefault();
+                $('html, body').animate({scrollTop:0}, 'slow');         
+            });
+            // mobile nav toggle
+            $('#nav-toggle').on('click', function (event) {
+                event.preventDefault();
+                $('#main-nav').toggleClass("open");
+            });
+        });
+        // scroll function
+        function scrollToID(id, speed){
+            var offSet = 0;
+            var targetOffset = $(id).offset().top - offSet;
+            var mainNav = $('#main-nav');
+            $('html,body').animate({scrollTop:targetOffset}, speed);
+            if (mainNav.hasClass("open")) {
+                mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+                mainNav.removeClass("open");
+            }
+        }
+        if (typeof console === "undefined") {
+            console = {
+                log: function() { }
+            };
+        }
+    </script>
+
+  </body>
+</html>
