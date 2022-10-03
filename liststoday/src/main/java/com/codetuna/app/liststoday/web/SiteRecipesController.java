@@ -29,13 +29,17 @@ import com.codetuna.app.liststoday.service.RecipeService;
 @RequestMapping("/") 
 public class SiteRecipesController {
 
+
+    // @Value("${openapi.server}")
+    // private String serverswaggerui;
+	
 	private final RecipeService recipeService;
  	@Autowired
     public SiteRecipesController(RecipeService _recipeService) {
         this.recipeService = _recipeService;
     }
 
-    @GetMapping("/lists-recipes")
+    @GetMapping("/list-recipes")
     public String index(Recipes recipes, Model model) {
         List<Recipes> recipesList = (List<Recipes>) recipeService.getRecipes();
 		System.out.println(recipesList);System.out.println("=======================");
@@ -56,7 +60,7 @@ public class SiteRecipesController {
         }
         recipeService.createRecipes(recipe);
         model.addAttribute("recipes", recipeService.getRecipes());
-        return "redirect:/lists-recipes";
+        return "redirect:/list-recipes";
     }
 
 	@GetMapping("/update-recipes/{id}")
@@ -80,13 +84,13 @@ public class SiteRecipesController {
 		System.out.println(recipe);System.out.println("<<<<====================>>");	System.out.println(recipe);
         recipeService.updateRecipes(id, recipe);
         model.addAttribute("recipes", recipeService.getRecipes());
-        return "redirect:/lists-recipes";
+        return "redirect:/list-recipes";
     } 
 	@PostMapping("/delete-recipes/{id}")
     public String deleteRecipes(@PathVariable("id") Long id, Model model) {              
     	recipeService.deleteRecipes(id);
         // model.addAttribute("recipes", recipeService.getRecipes());
-        return "redirect:/lists-recipes";
+        return "redirect:/list-recipes";
     }
     
                                                                                                                                                                                                                                                                                                                

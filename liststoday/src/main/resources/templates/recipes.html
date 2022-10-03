@@ -85,9 +85,9 @@ https://www.tooplate.com/view/2113-earth
                             </thead>
                             <tbody>
                               <tr class="table-active" th:each="recipe : ${recipes}">
-                                <th scope="row"></th>
+                                <th th:text="${recipe.title}"></th>
                                 <td th:text="${recipe.content}"></td>
-                                <td> <a th:href="@{/recipes-view/{id}(id=${recipe.id})}"> View </a></td> 
+                                <td> <a th:href="@{/update-recipes/{id}(id=${recipe.id})}"> View </a></td> 
                               </tr> 
                             </tbody>
                           </table>

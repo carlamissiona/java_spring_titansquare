@@ -27,14 +27,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http
       .authorizeRequests()   
-      .antMatchers("/login","/register","/home", "/","/index").access("permitAll") 
+      .antMatchers("/login","/register","/home", "/").access("permitAll") 
       .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/fonts/**", "/scss/**").access("permitAll")
-      
-      .antMatchers("/update-recipes/{id}","/lists-recipes","/add-recipes").authenticated() 
+      .antMatchers("/update-recipes/{id}","/list-recipes","/index","/add-recipes").authenticated() 
       .and()
       .formLogin()
-          .loginPage("/login")
-
+          .loginPage("/login").defaultSuccessUrl("/home")
       .and()
         .logout()
           .logoutSuccessUrl("/logout")

@@ -1,5 +1,7 @@
+openapi:
+  server: localhoster
 server:
-  port: 8044
+  port: 9595
 spring:
   datasource:
     generate-unique-name: false

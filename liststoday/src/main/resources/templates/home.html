@@ -42,9 +42,9 @@ https://www.tooplate.com/view/2113-earth
         <nav>
           <ul>
             <li><a href="#1"><img src="images/icon-1.png" alt=""> <em>News</em></a></li>
-            <li><a href="#2"><img src="images/icon-3.png" alt=""> <em>Plate Today</em></a></li>
-            <li><a href="#3"><img src="images/icon-3.png" alt=""> <em>Weather</em></a></li>
-            <li><a href="#4"><img src="images/icon-3.png" alt=""> <em>Bitcoin Today</em></a></li>
+            <li><a href="#2"><img src="images/icon-3.png" alt=""> <em>Lists Today</em></a></li>
+            <li><a href="#3"><img src="images/icon-3.png" alt=""> <em>Service</em></a></li>
+            <li><a href="#4"><img src="images/icon-3.png" alt=""> <em>Contact Us</em></a></li>
           </ul>
         </nav>
         
@@ -55,23 +55,53 @@ https://www.tooplate.com/view/2113-earth
                   <ul>
                     <li class="active-img">
                       <div class="slide-caption">
-                        <h6>New Arrival</h6>
-                        <h2>Beautiful<br>Earth</h2>
+                              <div class="container-fluid"> 
+                                <div class="row">
+                                    <div class="col-md-12" style="text-align:left;font-weight:bold;">
+                                      <h3 style="text-align:left;font-weight:bold;color:blue;">PH LATEST NEWS</h3>
+                                    </div>
+                                  
+                                    <div class="col-md-12">
+                                         <p id="news_politics" style="float:right;position:absolute!important;left:-500%!important;max-width:22em;margin-right:30px;text-align:left;font-weight:bold!important;">  
+
+                                         </p>
+                                         <p id="news_business" style="float:left;max-width:22em;margin-right:10px;text-align:left;font-weight:bold!important;">  
+
+                                        </p>
+                                    </div>
+                            
+                                </div>
+                            </div> 
+                        
                       </div>
                     </li>
                     <li>
-                      <div class="slide-caption" style="max-width: 800x;margin-right:50em">
-                          <h6>Latest One</h6>
-                          <h2>Tech<br>Meeting</h2>
-   
-                         <h4 style="float:left;min-width:250%;margin-top:-200px;"><strong>Tiktok Dislike Button Now Featured </strong></h4>
-                            <strong><a href="#">Read</a>   </strong>
+                      <div class="slide-caption" style="max-width: 800x;margin-right:32em;top:16em;">
+                          <h4 style="color:violet;">The Latest </h4>
+                          <div class="container-fluid"> 
+                            <div class="row">
+                                <div class="col-md-12">
+                                  <h2 style="color:black">TECH PH NEWS & MORE</h2>
+                                </div>
+                              
+                                <div class="col-md-12" style="margin-top:2em;">
+                                     <p id="news_tech" style="float:right;min-width:35em;max-width:35em;position:absolute;right:68%;text-align:left;font-weight:bold!important;">  
+
+                                     </p>
+                                     <p id="news_us" style="float:left;max-width:30em;min-width:30em;position:absolute;left:35%;text-align:right;font-weight:bold!important;">  
+
+                                    </p>
+                                </div>
+                        
+                            </div>
+                        </div> 
+                          
                         </div>
                                             
                       </li>
                     <li>
                       <div class="slide-caption">
-                        <strong>Login</strong>
+                        <strong th:text="${ islogin }">Login</strong>
                         <h5>To Get Cool Lists</h5>
 
 
@@ -80,37 +110,58 @@ https://www.tooplate.com/view/2113-earth
                           <p>New here? Click
                             <a th:href="@{/register}">here</a> to register.</p>
                         </div>
-                    
-                       
-                    
-                      
 
-                        <div class="container-fluid" style="margin-right:80em;">
+                        <span th:if="${ islogin == true }">
+                              <div class="container-fluid" style="margin-right:80em;">
                                 <form id="contact" th:action="@{/login}" method="post" style="max-height:300px!important;">
                                     <div class="row">
                                       <div class="col-md-4">
-                                        <h4 style="color:#ffff;">Login @  Lists Today</h4>
+                                        <h3 style="color:#ffff;">You Are login! </h3>
+                                      </div>
+                                      <div class="col-md-8">
+                                        <fieldset class="form-group">  
+                                          <button class="btn btn-info" type="submit" value="Login" onclick="function subfr(){ document.getElementById('loginForm').submit(); }; subfr();">Logout</button>
+                                      
+                                        </fieldset>
+                                        
+                                      </div>
+                                      
+                                    </div>
+                                  </form>
+                              </div>
+
+                        </span>
+                        <span th:unless="${ islogin == true  }">
+                              <div class="container-fluid" style="margin-right:80em;">
+                                <form id="contact" th:action="@{/login}" method="post" style="max-height:300px!important;">
+                                    <div class="row">
+                                      <div class="col-md-4">
+                                        <h3 style="color:#ffff;">Login Here </h3>
                                       </div>
                                       <div class="col-md-8">
                                         <fieldset class="form-group"> 
                                           <label for="username" style="color:#ffff;float:left;margin-right:15px;">Username: </label>
                                           <input type="text" style="max-width:320px!important;" class="form-control" name="username" id="username" /><br/>
-                                        </fieldset>
-                                  
-                                      
-                                        <fieldset class="form-group"> 
                                           <label for="password" style="color:#ffff;float:left;margin-right:15px;">Password: </label>
                                           <input type="password" style="max-width:320px!important;" class="form-control" name="password" id="password" /><br/>
                                           <button class="btn btn-info" type="submit" value="Login" onclick="function subfr(){ document.getElementById('loginForm').submit(); }; subfr();">Login</button>
+                                      
                                         </fieldset>
-                                  
                                         
+                                      </div>
+                                      
                                     </div>
-                                
-                            </div></form>
-                        </div>
+                                  </form>
+                            </div>
 
-                      </div>
+                        </span>
+                        
+                     </div>
+                    
+                        
+ 
+
+                      
                     </li>                      
                   </ul>
                 </div>
@@ -127,29 +178,24 @@ https://www.tooplate.com/view/2113-earth
             <div class="content second-content">
                 <div id='tabs'>
                   <ul>
-                    <li><a href='#tabs-1'><span class='fa fa-desktop'></span></a></li>
-                    <li><a href='#tabs-2'><span class='fa fa-users'></span></a></li>
-                    <li><a href='#tabs-3'><span class='fa fa-mobile'></span></a></li>
+                    <li><a href='#tabs-1'><span class='fa fa-users'></span></a></li>
                   </ul>
                   <section class='tabs-content'>
-                    <article id='tabs-1'>
-                      <h2>What We Offer?</h2>
-                      <span>Free Bootstrap v4 Theme</span>
-                      <p>Earth is free Bootstrap v4.1.3 HTML Template for you. Feel free to edit and use this website template for any purpose. Please tell your friends about Tooplate website. Follow us on <a href="https://www.facebook.com/tooplate/">Facebook page</a> for latest updates. Thank you.</p>
-                      <p>Aenean non suscipit risus. Nam mattis, ipsum ac aliquet dignissim, eros justo tempor dolor, rutrum feugiat nunc mauris et elit. Mauris sem odio, accumsan vel sem sed, aliquam convallis dui. Aenean et commodo est.</p>
-                    </article>
-                    <article id='tabs-2'>
-                      <h2>What We Do?</h2>
-                      <span>Ut nec metus eros</span>
-                      <p>Nunc ultricies lectus et sem interdum molestie. Donec non sagittis velit. Vivamus vitae dictum metus, id imperdiet diam. Vestibulum elementum urna erat, eu tincidunt nisl pulvinar nec. Nulla a pharetra felis, sit amet placerat felis. Fusce a tincidunt dui.</p>
-                      <p>Quisque blandit purus orci, et cursus ante porttitor in. Curabitur eleifend turpis id diam ultricies hendrerit. Donec et lectus vitae justo porta molestie.</p>
-                    </article>
-                    <article id='tabs-3'>
-                      <h2>Who We Are?</h2>
-                      <span>Etiam tempus ex ut mi</span>
-                      <p>Vivamus dictum odio at enim posuere, et dapibus nunc sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p> 
-                      <p>Integer a egestas tellus, id malesuada velit. Pellentesque tincidunt, libero eu rutrum volutpat, nisi urna mollis felis, sed mollis sem libero at magna.</p>
-                    </article>
+                    <article id='tabs-1' class="recipes-tab" >
+                      <h2>Recipes</h2>
+
+                        <span th:if="${ islogin == true }">
+                          <span><a th:href="@{/add-recipes}" > Add A Recipe </a></span>
+
+                        </span>
+                        <span th:unless="${ islogin == true  }">
+                          <span><a th:href="@{/register}" >Join & Submit Your Recipes</a></span>
+                        </span>
+
+
+                      
+                      <p  id="recipes-tab"></p>
+                    </article> 
                   </section>
                 </div>
             </div>
@@ -157,121 +203,34 @@ https://www.tooplate.com/view/2113-earth
         <!----News --->
         <div class="slide" id="3">
             <div class="content third-content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="owl-carousel owl-theme">
-                            <div class="col-md-12">
-                                <div class="featured-item"> 
-                                	<a href=""><img src="images/item02.gif" alt=""></a>
-                                    <div class="down-content">
-                                    <h4>Donec non sagittis</h4>
-                                        <h6>$25.00</h6>
+              
+
+                        <div class="container-fluid" style="margin-right:80em;">
+                          <form id="contact" th:action="@{/subscribe}" method="post" style="max-height:300px!important;">
+                               <div class="row">
+                                    <div class="col-md-4">
+                                      <h4 style="color:#ffff;font-weight: 400;">Email Service</h4>
+                                        <span><a th:href="@{/swagger-ui/index.html}" >Get Our List API</a></span>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="featured-item">
-                                    <a href=""><img src="images/item-02.jpg" alt=""></a>
-                                    <div class="down-content">
-                                        <h4>Nulla a pharetra</h4>
-                                        <h6>$35.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="featured-item">
-                                    <img src="images/item-03.jpg" alt="">
-                                    <div class="down-content">
-                                        <h4>Aliquam convallis</h4>
-                                        <h6>$45.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="featured-item">
-                                    <img src="images/item-04.jpg" alt="">
-                                    <div class="down-content">
-                                        <h4>Vivamus vitae #4</h4>
-                                        <h6>$55.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="featured-item">
-                                    <img src="images/item-05.jpg" alt="">
-                                    <div class="down-content">
-                                        <h4>Vivamus vitae #6</h4>
-                                        <h6>$65.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="featured-item">
-                                    <img src="images/item-06.jpg" alt="">
-                                    <div class="down-content">
-                                        <h4>Vivamus vitae #8</h4>
-                                        <h6>$75.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="featured-item">
-                                    <img src="images/item-07.jpg" alt="">
-                                    <div class="down-content">
-                                        <h4>Donec non sagittis</h4>
-                                        <h6>$85.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="featured-item">
-                                    <img src="images/item-08.jpg" alt="">
-                                    <div class="down-content">
-                                        <h4>Curabitur sed 8</h4>
-                                        <h6>$95.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="featured-item">
-                                    <img src="images/item-09.jpg" alt="">
-                                    <div class="down-content">
-                                        <h4>Curabitur sed 10</h4>
-                                        <h6>$105.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="featured-item">
-                                    <img src="images/item-10.jpg" alt="">
-                                    <div class="down-content">
-                                        <h4>Curabitur sed 12</h4>
-                                        <h6>$115.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="featured-item">
-                                    <img src="images/item-11.jpg" alt="">
-                                    <div class="down-content">
-                                        <h4>Curabitur sed 14</h4>
-                                        <h6>$125.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="featured-item">
-                                    <img src="images/item-12.jpg" alt="">
-                                    <div class="down-content">
-                                        <h4>Curabitur sed 16</h4>
-                                        <h6>$135.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                    <div class="col-md-8">
+                                          <fieldset class="form-group"> 
+                                            <label for="username" style="color:#ffff;float:left;margin-right:15px;">Email: </label>
+                                            <input type="text" style="max-width:320px!important;" class="form-control" name="email" id="email" /><br/>
+                                          </fieldset>
+                                    
+                                        
+                                          <fieldset class="form-group"> 
+                                            <button class="btn btn-info" type="submit" value="Login" onclick="function subfr(){ document.getElementById('loginForm').submit(); }; subfr();">Subscribe</button>
+                                          </fieldset>
+                                    
+                                          
+                                      </div>
+                          
+                                 </div>
+                            </form>
+                         </div>
+
                 </div>
-            </div>
         </div>
         <div class="slide" id="4">
             <div class="content fourth-content">
@@ -305,7 +264,21 @@ https://www.tooplate.com/view/2113-earth
                 </div>
             </div>
         </div>
-    </div>
+        <!-- <div style="display: none;" class="coin_defi" th:text="${coin_defi}"></div> -->
+        <!-- <div style="display: none;" class="coin_defi" th:text="${coin_defi}"></div>
+        <div style="display: none;" class="coin_stablecoin" th:text="${coin_stablecoin}"></div>
+        <div style="display: none;" class="coin_staking" th:text="${coin_staking}"></div>
+        <div style="display: none;" class="coin_nft" th:text="${coin_nft}"></div>
+
+        <div style="display: none;" class="recipes" th:text="${recipes}"></div>
+
+        <div style="display: none;" class="news_tech" th:text="${news_tech}"></div>
+        <div style="display: none;" class="news_biz" th:text="${news_biz}"></div>
+        <div style="display: none;" class="news_us" th:text="${news_us}"></div> -->
+
+        
+  
+        
 
 
     <!-- Bootstrap core JavaScript -->
@@ -321,6 +294,192 @@ https://www.tooplate.com/view/2113-earth
     <script type="text/javascript">
         $(document).ready(function() {
 
+        
+
+             //////////////////////////////////////////////////GET COINS/////////////////////////////////////
+            // console.log("COINS API");
+            // let data = null;
+
+            // const xhr_nft = new XMLHttpRequest();  xhr_nft.withCredentials = true;
+            
+            // xhr_nft.addEventListener("readystatechange", function (){
+            //   if (this.readyState === this.DONE) {
+            //     console.log("DONE RECIPES EVENT") ;
+            //     let j_nft =  JSON.parse(this.responseText);  console.log("COINS API NFT J_NFT"); console.log(j_nft);
+            //     let dv = document.getElementById("coins_list").innerHTML; 
+            //     for(let i = 0 ; i<j_nft.length; i++ ){
+            //         dv = dv + ` <a href="`+ j_nft.data.coins[i].coinrankingUrl +`"><span style="color:#fff;font-weight:400;"> Coin Rank : `+ j_nft.data.coins[i].symbol +`  &nbsp;&nbsp;&nbsp; Name : `+ j_nft.data.coins[i].name +` &nbsp;&nbsp;&nbsp; Price in USD : `+ j_nft.data.coins[i].price +` &nbsp;&nbsp;&nbsp; Price in Bitcoin : `+ j_nft.data.coins[i].btcPrice +` </span></a><br>`;
+            //     }
+            //     console.log("DONE RECIPES DV = "+dv);
+            //   }
+            // });
+
+            // xhr_nft.open("GET", "https://api.coinranking.com/v2/coins?limit=7&tags=nft&x-access-token%20=53a0b0a7e4f2fa59519e4");
+            
+            // xhr_nft.setRequestHeader("x-access-token", "53a0b0a7e4f2fa59519e4");
+
+            // xhr_nft.send(data); 
+
+            //////////////////////////////////////////////////END GET COINS/////////////////////////////////////
+            //////////////////////////////////////////////////GET COINS/////////////////////////////////////
+            console.log("COINS API");
+            let data = null;
+
+            // const xhr_stable = new XMLHttpRequest(); 
+            // xhr_stable.addEventListener("readystatechange", function () {
+            //   if (this.readyState === this.DONE) {
+            //     console.log("DONE RECIPES EVENT")
+            //     console.log(this.responseText);    console.log("DONE RECIPES EVENT")
+            //   }
+            // });
+
+            // xhr_stable.open("GET", "https://api.coinranking.com/v2/coins?limit=7&tags=stablecoin&x-access-token%20=53a0b0a7e4f2fa59519e4");
+
+            // xhr_stable.send(data); 
+
+            //////////////////////////////////////////////////END GET COINS/////////////////////////////////////
+
+            //////////////////////////////////////////////////GET COINS/////////////////////////////////////
+            console.log("RECIPES API");
+            data = null;
+
+            const xhr_recipes = new XMLHttpRequest(); 
+            xhr_recipes.withCredentials = false;  
+            xhr_recipes.addEventListener("readystatechange", function () {
+              if (this.readyState === this.DONE) {
+                console.log("<<<<<<DONE RECIPES EVENT>>>>>>>>");
+                let j_n1 = JSON.parse(this.responseText);  console.log("CRecipes"); console.log("CRecipes"); console.log(j_n1);
+                let dv = ""; console.log(j_n1);console.log(j_n1.meals.length);console.log(j_n1.meals.length);
+                for(let i = 0 ; i<j_n1.meals.length; i++ ){
+                  dv = dv + `<img src="`+ j_n1.meals[i].strMealThumb +`" style="width:120px;height:80px;" /> `+  j_n1.meals[i].strMeal +`  &nbsp;&nbsp;
+                    <a href="https://www.themealdb.com">Check out TheMealDB</a>
+                    <br>`;
+                }
+               
+                document.getElementById("recipes-tab").innerHTML=dv; 
+              }
+            });
+
+            xhr_recipes.open("GET", "https://www.themealdb.com/api/json/v1/1/filter.php?a=American"); 
+
+            xhr_recipes.send(data); 
+
+            //////////////////////////////////////////////////END GET COINS/////////////////////////////////////
+            console.log("NEWS API");
+                        data = null;
+
+            const xhr_us = new XMLHttpRequest();
+            xhr_us.withCredentials = true;
+
+            xhr_us.addEventListener("readystatechange", function () {
+              if (this.readyState === this.DONE) {
+                // console.log("DONE EVENT")
+                // console.log(this.responseText);
+                // console.log("DONE RECIPES EVENT") ;
+                let j_n1 = JSON.parse(this.responseText);  console.log("COINS API NFT J_NFT"); console.log(j_n1);
+                let dv = ""; console.log(j_n1);console.log(j_n1.articles.length);console.log(j_n1.articles.length);
+                for(let i = 0 ; i<j_n1.articles.length; i++ ){
+                  dv = dv + ` <a href="`+ j_n1.articles[i].link +`" style="display:block;font-size:26px;font-weight:bold;color:#fff;"><span> Title : `+ j_n1.articles[i].title +`  &nbsp;&nbsp;&nbsp; Publisher: `+ j_n1.articles[i].author+` </span></a><br>`;
+                }
+                // console.log("DONE NEWS DV = "+dv);console.log(dv);
+                document.getElementById("news_us").innerHTML=dv; 
+              }
+            });
+
+            xhr_us.open("GET", "https://api.newscatcherapi.com/v2/latest_headlines?countries=US&lang=en&page_size=4");
+            xhr_us.setRequestHeader("x-api-key", "YqyvD46VhUYoB--M4AlEaZeWe633q0_DD0sVz6cGFVo");
+
+            xhr_us.send(data); 
+            function delay(time) { return new Promise(resolve => setTimeout(resolve, time));} delay(5500).then(() =>  xhr_us.send(data) );
+            //////////////////////////////////////////////////END GET NEWS/////////////////////////////////////
+
+
+             //////////////////////////////////////////////////END GET COINS/////////////////////////////////////
+             console.log("NEWS API");
+            data = null;
+
+            const xhr_tech = new XMLHttpRequest();
+            xhr_tech.withCredentials = true;
+
+            xhr_tech.addEventListener("readystatechange", function () {
+              if (this.readyState === this.DONE) {
+                // console.log("DONE EVENT")
+                // console.log(this.responseText);
+                // console.log("DONE RECIPES EVENT") ;
+                let j_n1 = JSON.parse(this.responseText);  console.log("COINS API NFT J_NFT"); console.log(j_n1);
+                let dv = ""; console.log(j_n1);console.log(j_n1.articles.length);console.log(j_n1.articles.length);
+                for(let i = 0 ; i<j_n1.articles.length; i++ ){
+                    dv = dv + ` <a href="`+ j_n1.articles[i].link +`" style="display:block;font-size:26px;font-weight:bold;color:#fff;"><span> Title : `+ j_n1.articles[i].title +`  &nbsp;&nbsp;&nbsp; Publisher: `+ j_n1.articles[i].author+` </span></a><br>`;
+                }
+                console.log("DONE NEWS DV = "+dv);console.log(dv);
+                document.getElementById("news_tech").innerHTML=dv; 
+              }
+            });
+
+            xhr_tech.open("GET", "https://api.newscatcherapi.com/v2/latest_headlines?countries=PH&lang=en&topic=tech&page_size=4");
+            xhr_tech.setRequestHeader("x-api-key", "YqyvD46VhUYoB--M4AlEaZeWe633q0_DD0sVz6cGFVo");
+            delay(4500).then(() =>   xhr_tech.send(data) );
+            
+            //////////////////////////////////////////////////END GET NEWS/////////////////////////////////////
+
+
+            //////////////////////////////////////////////////END GET COINS/////////////////////////////////////
+            console.log("NEWS API");
+            data = null;
+
+            const xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+              if (this.readyState === this.DONE) {
+                // console.log("DONE EVENT")
+                // console.log(this.responseText);
+                // console.log("DONE RECIPES EVENT") ;
+                let j_n1 = JSON.parse(this.responseText);  console.log("COINS API NFT J_NFT"); console.log(j_n1);
+                let dv = ""; console.log(j_n1);console.log(j_n1.articles.length);console.log(j_n1.articles.length);
+                for(let i = 0 ; i<j_n1.articles.length; i++ ){
+                    dv = dv + ` <a href="`+ j_n1.articles[i].link +`" style="display:block;font-size:26px;font-weight:bold;color:#fff;"><span> Title : `+ j_n1.articles[i].title +`  &nbsp;&nbsp;&nbsp; Publisher: `+ j_n1.articles[i].author+` </span></a><br>`;
+                }
+                console.log("DONE NEWS DV = "+dv);console.log(dv);
+                document.getElementById("news_politics").innerHTML=dv; 
+              }
+            });
+
+            xhr.open("GET", "https://api.newscatcherapi.com/v2/latest_headlines?countries=PH&lang=en&topic=politics&page_size=4");
+            xhr.setRequestHeader("x-api-key", "YqyvD46VhUYoB--M4AlEaZeWe633q0_DD0sVz6cGFVo");
+         
+
+            delay(1000).then(() =>   xhr.send(data) );
+            //////////////////////////////////////////////////END GET NEWS/////////////////////////////////////
+            //////////////////////////////////////////////////END GET COINS/////////////////////////////////////
+            console.log("NEWS API");
+            data = null;
+
+            let xhr_bz = new XMLHttpRequest();
+            xhr_bz.withCredentials = true;
+
+            xhr_bz.addEventListener("readystatechange", function () {
+              if (this.readyState === this.DONE) {
+                // console.log("DONE EVENT")
+                // console.log(this.responseText);
+                // console.log("DONE RECIPES EVENT") ;
+                let j_n1 = JSON.parse(this.responseText);  console.log("COINS API NFT J_NFT"); console.log(j_n1);
+                let dv = ""; console.log(j_n1);console.log(j_n1.articles.length);console.log(j_n1.articles.length);
+                for(let i = 0 ; i<j_n1.articles.length; i++ ){
+                    dv = dv + ` <a href="`+ j_n1.articles[i].link +`" style="display:block;font-size:26px;font-weight:bold;color:#fff;"><span> Title : `+ j_n1.articles[i].title +`  &nbsp;&nbsp;&nbsp; Publisher: `+ j_n1.articles[i].author+` </span></a><br>`;
+                }
+                console.log("DONE NEWS DV = "+dv);console.log(dv);
+                document.getElementById("news_business").innerHTML=dv; 
+              }
+            });
+
+            xhr_bz.open("GET", "https://api.newscatcherapi.com/v2/latest_headlines?countries=PH&topic=business&page_size=4");
+            xhr_bz.setRequestHeader("x-api-key", "YqyvD46VhUYoB--M4AlEaZeWe633q0_DD0sVz6cGFVo");
+
+            
+            delay(3500).then(() =>    xhr_bz.send(data) );
+
+            //////////////////////////////////////////////////END GET NEWS/////////////////////////////////////
             // navigation click actions 
             $('.scroll-link').on('click', function(event){
                 event.preventDefault();

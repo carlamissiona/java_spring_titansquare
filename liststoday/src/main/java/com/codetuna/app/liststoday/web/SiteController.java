@@ -24,35 +24,60 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import java.io.IOException; 
+import java.security.Principal;
 import java.io.BufferedInputStream;  
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.beans.factory.annotation.Value;
 
 @Controller
 @RequestMapping("/") 
 public class SiteController { 
- 
+	
+
+
+    @Value("${openapi.server}")
+    private String serverswaggerui;
+
+
     @GetMapping("/home")
-    public String home( Model model ) { 
+    public String home( Model model , Principal user) { 
+
+		//  String baseUrl = ServletUriComponentsBuilder.fromRequestUri(request)
+        //     .replacePath(null)
+        //     .build()
+        //     .toUriString();
+ 
+	    // System.out.println(baseUrl);
+		
       // news  
-	  model.addAttribute("news_tech", get_news("tech") );
-	  model.addAttribute("news_biz", get_news("biz") );	  
-	  model.addAttribute("news_us", get_news("us") );
-	  //curl https://api.coinranking.com/v2/coins?limit=8&tags=stablecoin -H x-access-token: 53a0b0a7e4f2fa59519e4
-	  //stablecoin nft defi staking exchange
+	//   model.addAttribute("news_tech", get_news("tech") );
+	//   model.addAttribute("news_biz", get_news("biz") );	  
+	//   model.addAttribute("news_us", get_news("us") );
+	//   curl https://api.coinranking.com/v2/coins?limit=8&tags=stablecoin -H x-access-token: 53a0b0a7e4f2fa59519e4
+	//   stablecoin nft defi staking exchange
+	 if (user == null ){
+		System.out.println("!!Not LoginLoginLogin");System.out.println("!!Not LoginLoginLogin");
+		model.addAttribute("islogin",  false);
+	 }else{
+	    System.out.println("LoginLoginLogin");
+		
+		model.addAttribute("islogin",  true);
+	 }
+	//   model.addAttribute("coin_defi", get_coinrank("defi") );
+ 
+	//   model.addAttribute("coin_stablecoin", get_coinrank("stablecoin") );	  
+	//   model.addAttribute("coin_staking", get_coinrank("staking") );
+	//   model.addAttribute("coin_nft", get_coinrank("nft") );
+	//   model.addAttribute("recipes", get_recipes() );
 	 
-	  model.addAttribute("coin_defi", get_coinrank("defi") );
-	  model.addAttribute("coin_stablecoin", get_coinrank("stablecoin") );	  
-	  model.addAttribute("coin_staking", get_coinrank("staking") );
-	  model.addAttribute("coin_nft", get_coinrank("nft") );
-	  model.addAttribute("recipes", get_recipes() );
-	 
-	  //recipes
+	//   recipes
 	//  "https://api.spoonacular.com/recipes/random?number=1&tags=vegetarian,dessert&apiKey=68e63d319d6e4b51ba1c11de4e945de3"
 
       return "home";
     }
 	@GetMapping("/index")
-    public String index() {
-     
+    public String index( Model model , Principal user) {
+      model.addAttribute("islogin",  true);
       return "index";
     }
 	@GetMapping("/food")
@@ -66,13 +91,13 @@ public class SiteController {
 		String cmd_str ="";
 		switch (genre) {
 		case "tech":
-			cmd_str = "curl -X GET 'https://api.newscatcherapi.com/v2/latest_headlines?countries=PH&topic=tech&page_size=3'  -H 'x-api-key:YqyvD46VhUYoB--M4AlEaZeWe633q0_DD0sVz6cGFVo'" ;
+			cmd_str = "curl -X GET 'https://api.newscatcherapi.com/v2/latest_headlines?countries=PH&topic=tech&page_size=3' -H 'x-api-key:YqyvD46VhUYoB--M4AlEaZeWe633q0_DD0sVz6cGFVo'" ;
 			break;
 		case "us":
-			cmd_str = "curl -X GET 'https://api.newscatcherapi.com/v2/latest_headlines?lang=en&countries=US&topic=politics&page_size=3'  -H 'x-api-key:YqyvD46VhUYoB--M4AlEaZeWe633q0_DD0sVz6cGFVo'" ;
+			cmd_str = "curl -X GET 'https://api.newscatcherapi.com/v2/latest_headlines?lang=en&countries=US&topic=politics&page_size=3' -H 'x-api-key:YqyvD46VhUYoB--M4AlEaZeWe633q0_DD0sVz6cGFVo'" ;
 			break;
 		case "biz":
-			cmd_str  ="curl -X GET 'https://api.newscatcherapi.com/v2/latest_headlines?countries=PH&topic=business&page_size=3'  -H 'x-api-key:YqyvD46VhUYoB--M4AlEaZeWe633q0_DD0sVz6cGFVo'" ;
+			cmd_str  ="curl -X GET 'https://api.newscatcherapi.com/v2/latest_headlines?countries=PH&topic=business&page_size=3' -H 'x-api-key:YqyvD46VhUYoB--M4AlEaZeWe633q0_DD0sVz6cGFVo' -H 'Authorization: Apikey' " ;
 			break;
 		} 
 
@@ -96,9 +121,10 @@ public class SiteController {
 		 
 			read.lines().forEach(line -> {
 				System.out.println("line>>>>>>>>>>>>>>>>>>>>>>>>>>>"); 
+				//if(sb.contains(" ")  ){break;};
 				sb.append(line);
 			});
-
+          
 			System.out.println("line> sb "+sb);
 			txtsb = sb.toString();
 		 
@@ -212,7 +238,7 @@ public class SiteController {
 		}
 	  
 		proc.destroy();	System.out.println("recipes'''''''''''''''''''''''");
-		System.out.println(txtsb);System.out.println("get_coinrsank'''''''''''''''''''''''");
+		System.out.println(txtsb);System.out.println("get_coinrsankrecipes'''''''''''''''''''''''");
 		return txtsb;
 
 	}
